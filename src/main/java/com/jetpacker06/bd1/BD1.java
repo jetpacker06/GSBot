@@ -2,7 +2,6 @@ package com.jetpacker06.bd1;
 
 import com.jetpacker06.bd1.command.CommandInit;
 import com.jetpacker06.bd1.command.Commands;
-import com.jetpacker06.bd1.util.*;
 import com.jetpacker06.bd1.util.entity.entities.Channels;
 import com.jetpacker06.bd1.util.entity.entities.Guilds;
 import com.jetpacker06.bd1.util.entity.entities.Roles;
@@ -13,17 +12,10 @@ import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.events.GenericEvent;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.requests.GatewayIntent;
-import org.reflections.Reflections;
 
 import javax.security.auth.login.LoginException;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 public class BD1 {
-    public static Reflections reflections = new Reflections("com.jetpacker06");
     public static GenericEvent recentEvent;
     public static SlashCommandInteractionEvent recentCommandEvent;
 

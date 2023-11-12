@@ -39,10 +39,6 @@ public class Commands extends ListenerAdapter {
         }
     }
 
-    public static Set<Class<? extends Command>> getCommandClasses() {
-        return BD1.reflections.getSubTypesOf(Command.class);
-    }
-
     @Override
     public void onGuildVoiceJoin(@NotNull GuildVoiceJoinEvent event) {
         ensureAllowedInChannel(event.getMember(), event.getChannelJoined(), event.getGuild());
