@@ -9,9 +9,6 @@ import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
 
 import java.util.ArrayList;
-import java.util.Set;
-
-import static com.jetpacker06.bd1.BD1.print;
 @SuppressWarnings("ResultOfMethodCallIgnored")
 public class CommandInit {
     public static ArrayList<CommandData> commandDataArrayList = new ArrayList<>();
