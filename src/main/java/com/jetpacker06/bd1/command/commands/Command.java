@@ -33,7 +33,7 @@ public abstract class Command {
     public void executeForIncorrectContext(SlashCommandInteractionEvent event) {
         event.reply("This command does not work in this server").setEphemeral(true).queue();
     }
-    public boolean correctContext(SlashCommandInteractionEvent event) {
+    public boolean checkContext(SlashCommandInteractionEvent event) {
         return true;
     }
 

@@ -32,7 +32,7 @@ public class EventHandler extends ListenerAdapter {
         if (!commands.containsKey(name)) return;
 
         Command command = commands.get(name);
-        if (command.correctContext(event)) {
+        if (command.checkContext(event)) {
             command.execute(event);
         }
         else {

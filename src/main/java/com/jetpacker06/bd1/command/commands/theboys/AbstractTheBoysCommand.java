@@ -8,7 +8,7 @@ import java.util.Objects;
 
 public abstract class AbstractTheBoysCommand extends Command {
     @Override
-    public boolean correctContext(SlashCommandInteractionEvent event) {
+    public boolean checkContext(SlashCommandInteractionEvent event) {
         return event.isFromGuild() && Objects.equals(event.getGuild(), Guilds.theBoys);
     }
 }
