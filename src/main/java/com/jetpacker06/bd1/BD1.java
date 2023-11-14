@@ -1,6 +1,6 @@
 package com.jetpacker06.bd1;
 
-import com.jetpacker06.bd1.command.CommandRegister;
+import com.jetpacker06.bd1.command.CommandRegistry;
 import com.jetpacker06.bd1.command.EventHandler;
 import com.jetpacker06.bd1.util.entity.entities.Channels;
 import com.jetpacker06.bd1.util.entity.entities.Guilds;
@@ -43,7 +43,7 @@ public class BD1 {
         Roles.noEditor = jda.getRoleById(1106691485774127176L);
 
 
-        CommandRegister.registerSlashCommands();
+        CommandRegistry.registerSlashCommands();
     }
     public static void print(Object message) {
         System.out.println(message);

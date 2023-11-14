@@ -1,7 +1,7 @@
 package com.jetpacker06.bd1.command.commands;
 
 import com.jetpacker06.bd1.BD1;
-import com.jetpacker06.bd1.command.CommandRegister;
+import com.jetpacker06.bd1.command.CommandRegistry;
 import com.jetpacker06.bd1.util.entity.entities.Guilds;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
@@ -27,7 +27,7 @@ public abstract class Command {
         for (OptionData option : this.getOptions()) {
             command.addOption(option.getType(), option.getName(), option.getDescription(), option.isRequired());
         }
-        CommandRegister.commandDataArrayList.add(command);
+        CommandRegistry.commandDataArrayList.add(command);
     }
 
     public void executeForIncorrectContext(SlashCommandInteractionEvent event) {

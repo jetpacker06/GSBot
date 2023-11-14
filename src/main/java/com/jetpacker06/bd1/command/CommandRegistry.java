@@ -12,7 +12,7 @@ import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
 
 import java.util.ArrayList;
 @SuppressWarnings("ResultOfMethodCallIgnored")
-public class CommandRegister {
+public class CommandRegistry {
     public static ArrayList<CommandData> commandDataArrayList = new ArrayList<>();
     public static void registerSlashCommands() {
         put(new EmoteCommand());
@@ -20,6 +20,7 @@ public class CommandRegister {
         put(new PreciseCommand());
         put(new ThinkCommand());
         put(new ToStacksCommand());
+        put(new MarieCommand());
 
         put(new GiveEditorCommand());
         put(new SaveMeCommand());
