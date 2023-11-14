@@ -1,6 +1,5 @@
-package com.jetpacker06.bd1.command.commands.perms;
+package com.jetpacker06.bd1.command.commands.theboys;
 
-import com.jetpacker06.bd1.command.commands.Command;
 import com.jetpacker06.bd1.util.entity.entities.Guilds;
 import com.jetpacker06.bd1.util.entity.entities.Roles;
 import net.dv8tion.jda.api.entities.Guild;
@@ -8,7 +7,7 @@ import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
-public class GiveEditorCommand extends Command {
+public class GiveEditorCommand extends AbstractTheBoysCommand {
     @Override
     public String getName() {
         return "giveeditor";
@@ -17,11 +16,6 @@ public class GiveEditorCommand extends Command {
     @Override
     public String getDescription() {
         return "Give yourself editor role";
-    }
-
-    @Override
-    public boolean forFriendsOnly() {
-        return true;
     }
 
     @Override

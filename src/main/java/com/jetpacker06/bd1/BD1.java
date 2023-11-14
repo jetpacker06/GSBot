@@ -1,7 +1,7 @@
 package com.jetpacker06.bd1;
 
-import com.jetpacker06.bd1.command.CommandInit;
-import com.jetpacker06.bd1.command.Commands;
+import com.jetpacker06.bd1.command.CommandRegister;
+import com.jetpacker06.bd1.command.EventHandler;
 import com.jetpacker06.bd1.util.entity.entities.Channels;
 import com.jetpacker06.bd1.util.entity.entities.Guilds;
 import com.jetpacker06.bd1.util.entity.entities.Roles;
@@ -28,11 +28,12 @@ public class BD1 {
         .setActivity(Activity.watching("closely."))
         .enableIntents(GatewayIntent.MESSAGE_CONTENT)
         .setStatus(OnlineStatus.ONLINE)
-        .addEventListeners(new Commands())
+        .addEventListeners(new EventHandler())
         .build()
         .awaitReady();
 
         Guilds.theBoys = jda.getGuildById(1080478548948684900L);
+        Guilds.jetpackHub = jda.getGuildById(871409050808643594L);
         Guilds.testServer = jda.getGuildById(945662624224382998L);
         Channels.plans = jda.getTextChannelById(1132046698265464853L);
         Channels.noLawrence = jda.getVoiceChannelById(1080625271100669962L);
@@ -42,7 +43,7 @@ public class BD1 {
         Roles.noEditor = jda.getRoleById(1106691485774127176L);
 
 
-        CommandInit.registerSlashCommands();
+        CommandRegister.registerSlashCommands();
     }
     public static void print(Object message) {
         System.out.println(message);

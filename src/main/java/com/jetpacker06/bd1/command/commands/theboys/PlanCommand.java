@@ -1,8 +1,8 @@
-package com.jetpacker06.bd1.command.commands;
+package com.jetpacker06.bd1.command.commands.theboys;
 
+import com.jetpacker06.bd1.util.Util;
 import com.jetpacker06.bd1.util.entity.entities.Channels;
 import com.jetpacker06.bd1.util.entity.entities.Emojis;
-import com.jetpacker06.bd1.util.Util;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.MessageBuilder;
 import net.dv8tion.jda.api.entities.TextChannel;
@@ -12,7 +12,7 @@ import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class PlanCommand extends Command{
+public class PlanCommand extends AbstractTheBoysCommand {
     @Override
     public String getName() {
         return "plan";
@@ -21,11 +21,6 @@ public class PlanCommand extends Command{
     @Override
     public String getDescription() {
         return "Plan an event.";
-    }
-
-    @Override
-    public boolean forFriendsOnly() {
-        return true;
     }
 
     @Override

@@ -1,11 +1,10 @@
-package com.jetpacker06.bd1.command.commands.perms;
+package com.jetpacker06.bd1.command.commands.theboys;
 
-import com.jetpacker06.bd1.command.commands.Command;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
-public class SaveMeCommand extends Command {
+public class SaveMeCommand extends AbstractTheBoysCommand {
     @Override
     public String getName() {
         return "saveme";
@@ -14,11 +13,6 @@ public class SaveMeCommand extends Command {
     @Override
     public String getDescription() {
         return "Unmute and undeafen yourself.";
-    }
-
-    @Override
-    public boolean forFriendsOnly() {
-        return true;
     }
 
     @Override

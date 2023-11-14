@@ -17,12 +17,6 @@ public class FromStacksCommand extends Command {
     public String getDescription() {
         return "Convert an amount of stacks to a raw number.";
     }
-
-    @Override
-    public boolean forFriendsOnly() {
-        return false;
-    }
-
     @Override
     public ArrayList<OptionData> getOptions() {
         return optionsList(

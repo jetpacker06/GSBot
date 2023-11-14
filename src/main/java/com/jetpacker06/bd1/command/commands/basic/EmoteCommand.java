@@ -16,11 +16,6 @@ public class EmoteCommand extends Command {
     }
 
     @Override
-    public boolean forFriendsOnly() {
-        return false;
-    }
-
-    @Override
     public void execute(SlashCommandInteractionEvent event) {
         event.replyEmbeds(Util.createImageEmbed(Util.randomFromArray(emotes_list))).queue();
     }

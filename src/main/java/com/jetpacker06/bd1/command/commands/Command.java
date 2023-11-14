@@ -1,7 +1,7 @@
 package com.jetpacker06.bd1.command.commands;
 
 import com.jetpacker06.bd1.BD1;
-import com.jetpacker06.bd1.command.CommandInit;
+import com.jetpacker06.bd1.command.CommandRegister;
 import com.jetpacker06.bd1.util.entity.entities.Guilds;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
@@ -15,7 +15,7 @@ import java.util.Objects;
 public abstract class Command {
     public abstract String getName();
     public abstract String getDescription();
-    public abstract boolean forFriendsOnly();
+    public abstract void execute(SlashCommandInteractionEvent event);
 
     public ArrayList<OptionData> getOptions() {
         return new ArrayList<>();
@@ -27,13 +27,14 @@ public abstract class Command {
         for (OptionData option : this.getOptions()) {
             command.addOption(option.getType(), option.getName(), option.getDescription(), option.isRequired());
         }
-        CommandInit.commandDataArrayList.add(command);
+        CommandRegister.commandDataArrayList.add(command);
     }
 
-    public abstract void execute(SlashCommandInteractionEvent event);
-
-    public void executeForFriendsOnly(SlashCommandInteractionEvent event) {
+    public void executeForIncorrectContext(SlashCommandInteractionEvent event) {
         event.reply("This command does not work in this server").setEphemeral(true).queue();
+    }
+    public boolean correctContext(SlashCommandInteractionEvent event) {
+        return true;
     }
 
     public String getStrOp(String optionName) {

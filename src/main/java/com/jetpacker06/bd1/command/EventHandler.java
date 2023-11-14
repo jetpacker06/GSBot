@@ -16,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
-public class Commands extends ListenerAdapter {
+public class EventHandler extends ListenerAdapter {
     public static HashMap<String, Command> commands = new HashMap<>();
     @Override
     public void onGenericEvent(@NotNull GenericEvent event) {
@@ -32,11 +32,11 @@ public class Commands extends ListenerAdapter {
         if (!commands.containsKey(name)) return;
 
         Command command = commands.get(name);
-        if (command.forFriendsOnly() & CommandUtil.notInCorrectServer(event)) {
-            command.executeForFriendsOnly(event);
+        if (command.correctContext(event)) {
+            command.execute(event);
         }
         else {
-            command.execute(event);
+            command.executeForIncorrectContext(event);
         }
     }
 

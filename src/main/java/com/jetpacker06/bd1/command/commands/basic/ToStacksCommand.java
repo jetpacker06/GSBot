@@ -19,11 +19,6 @@ public class ToStacksCommand extends Command {
     }
 
     @Override
-    public boolean forFriendsOnly() {
-        return false;
-    }
-
-    @Override
     public ArrayList<OptionData> getOptions() {
         return optionsList(
                 intOption("number", "The number to convert to stacks.", true),

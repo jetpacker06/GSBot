@@ -14,11 +14,6 @@ public class ThinkCommand extends Command {
     }
 
     @Override
-    public boolean forFriendsOnly() {
-        return false;
-    }
-
-    @Override
     public void execute(SlashCommandInteractionEvent event) {
         event.deferReply().queue();
     }

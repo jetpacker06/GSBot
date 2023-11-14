@@ -15,11 +15,6 @@ public class PreciseCommand extends Command {
     }
 
     @Override
-    public boolean forFriendsOnly() {
-        return false;
-    }
-
-    @Override
     public void execute(SlashCommandInteractionEvent event) {
         event.replyEmbeds(Util.createImageEmbed(gif_link)).queue();
     }
