@@ -48,6 +48,7 @@ public class BD1 {
         Channels.botCmds = jda.getTextChannelById(1173008414423646208L);
         Roles.editor = jda.getRoleById(1080620779743498330L);
         Roles.noEditor = jda.getRoleById(1106691485774127176L);
+        Roles.noEditor = jda.getRoleById(1080685865447194744L);
 
 
         CommandRegistry.registerSlashCommands();

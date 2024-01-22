@@ -3,11 +3,14 @@ package com.jetpacker06.bd1.command;
 import com.jetpacker06.bd1.BD1;
 import com.jetpacker06.bd1.command.commands.Command;
 import com.jetpacker06.bd1.util.entity.entities.Channels;
+import com.jetpacker06.bd1.util.entity.entities.Guilds;
+import com.jetpacker06.bd1.util.entity.entities.Roles;
 import com.jetpacker06.bd1.util.entity.entities.UserIDs;
 import net.dv8tion.jda.api.entities.AudioChannel;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.GenericEvent;
+import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.events.guild.voice.GuildVoiceJoinEvent;
 import net.dv8tion.jda.api.events.guild.voice.GuildVoiceMoveEvent;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
@@ -43,6 +46,14 @@ public class EventHandler extends ListenerAdapter {
     @Override
     public void onGuildVoiceJoin(@NotNull GuildVoiceJoinEvent event) {
         ensureAllowedInChannel(event.getMember(), event.getChannelJoined(), event.getGuild());
+    }
+
+    @Override
+    public void onGuildMemberJoin(@NotNull GuildMemberJoinEvent event) {
+        if (event.getGuild().getIdLong() != Guilds.theBoys.getIdLong()) return;
+        if (event.getUser().isBot()) return;
+        Guilds.theBoys.addRoleToMember(event.getUser(), Roles.online).queue();
+        System.out.println("Assigned \"online\" role to " + event.getMember().getUser().getName());
     }
 
     @Override
