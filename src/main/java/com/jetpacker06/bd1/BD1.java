@@ -1,6 +1,8 @@
 package com.jetpacker06.bd1;
 
-import com.jetpacker06.bd1.command.CommandRegistry;
+import com.jetpacker06.bd1.command.SlashCommandRegistry;
+import com.jetpacker06.bd1.db.DBAccessor;
+import com.jetpacker06.bd1.db.DBClient;
 import com.jetpacker06.bd1.event.EventHandler;
 import com.jetpacker06.bd1.event.SlashCommandEvents;
 import com.jetpacker06.bd1.terminal.Terminal;
@@ -17,6 +19,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 
 import javax.security.auth.login.LoginException;
+import java.sql.SQLOutput;
 
 public class BD1 {
     public static GenericEvent recentEvent;
@@ -41,6 +44,15 @@ public class BD1 {
         .build()
         .awaitReady();
 
+        initSnowflakes();
+
+        DBClient.init();
+
+        SlashCommandRegistry.registerSlashCommands();
+        Terminal.startTerminal();
+    }
+
+    public static void initSnowflakes() {
         Guilds.theBoys = jda.getGuildById(1080478548948684900L);
         Guilds.jetpackHub = jda.getGuildById(871409050808643594L);
         Guilds.testServer = jda.getGuildById(945662624224382998L);
@@ -54,8 +66,5 @@ public class BD1 {
         Roles.noEditor = jda.getRoleById(1199923037454204928L);
         Roles.rkelly = jda.getRoleById(1151675275420110911L);
         Roles.online = jda.getRoleById(1080685865447194744L);
-
-        CommandRegistry.registerSlashCommands();
-        Terminal.startTerminal();
     }
 }

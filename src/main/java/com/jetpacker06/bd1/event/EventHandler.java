@@ -3,6 +3,7 @@ package com.jetpacker06.bd1.event;
 import com.jetpacker06.bd1.BD1;
 import com.jetpacker06.bd1.command.commands.Command;
 import com.jetpacker06.bd1.command.commands.common.RoleMenuCommand;
+import com.jetpacker06.bd1.db.DBAccessor;
 import com.jetpacker06.bd1.util.Util;
 import com.jetpacker06.bd1.util.entity.entities.*;
 import net.dv8tion.jda.api.entities.AudioChannel;
@@ -69,6 +70,11 @@ public class EventHandler extends ListenerAdapter {
         // if in Showcase channel and has an attachment, send a thumbs up
         if (event.isFromGuild() && event.getChannel().getIdLong() == Channels.showcase.getIdLong() && event.getMessage().getAttachments().size() != 0) {
             event.getMessage().addReaction(Emojis.THUMBS_UP).queue();
-        } //else if (event.isFromGuild() && )
+        } else if (event.isFromGuild() && event.getGuild().getIdLong() == Guilds.jetpackHub.getIdLong()
+                && event.getMessage().getContentRaw().toLowerCase().startsWith("can you believe it guys")
+        ) {
+            int count = DBAccessor.incrementAndGetCYBIG();
+            event.getMessage().reply(String.valueOf(count)).queue();
+        }
     }
 }

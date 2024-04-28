@@ -1,7 +1,6 @@
 package com.jetpacker06.bd1.command;
 
 import com.jetpacker06.bd1.BD1;
-import com.jetpacker06.bd1.event.EventHandler;
 import com.jetpacker06.bd1.command.commands.Command;
 import com.jetpacker06.bd1.command.commands.common.*;
 import com.jetpacker06.bd1.command.commands.jetpackhub.RoleRequestCommand;
@@ -14,7 +13,7 @@ import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
 
 import java.util.ArrayList;
 @SuppressWarnings("ResultOfMethodCallIgnored")
-public class CommandRegistry {
+public class SlashCommandRegistry {
     public static ArrayList<CommandData> commandDataArrayList = new ArrayList<>();
     public static void registerSlashCommands() {
         put(new EmoteCommand());
