@@ -1,4 +1,4 @@
-package com.jetpacker06.bd1.command.commands.basic;
+package com.jetpacker06.bd1.command.commands.common;
 
 import com.jetpacker06.bd1.command.commands.Command;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -28,7 +28,7 @@ public class ToStacksCommand extends Command {
 
     @Override
     public void execute(SlashCommandInteractionEvent event) {
-        int input = getIntOp("number");
+        int input = getIntOption("number");
         int stackSize = intOrElse("stacksize", 64);
         int stacks = 0;
         int remainder = input;

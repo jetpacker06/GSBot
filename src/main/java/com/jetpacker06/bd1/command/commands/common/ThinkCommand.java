@@ -1,4 +1,4 @@
-package com.jetpacker06.bd1.command.commands.basic;
+package com.jetpacker06.bd1.command.commands.common;
 
 import com.jetpacker06.bd1.command.commands.Command;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;

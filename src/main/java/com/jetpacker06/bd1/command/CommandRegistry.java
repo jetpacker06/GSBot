@@ -1,8 +1,9 @@
 package com.jetpacker06.bd1.command;
 
 import com.jetpacker06.bd1.BD1;
+import com.jetpacker06.bd1.event.EventHandler;
 import com.jetpacker06.bd1.command.commands.Command;
-import com.jetpacker06.bd1.command.commands.basic.*;
+import com.jetpacker06.bd1.command.commands.common.*;
 import com.jetpacker06.bd1.command.commands.jetpackhub.RoleRequestCommand;
 import com.jetpacker06.bd1.command.commands.theboys.GiveEditorCommand;
 import com.jetpacker06.bd1.command.commands.theboys.PlanCommand;
@@ -21,6 +22,9 @@ public class CommandRegistry {
         put(new ThinkCommand());
         put(new ToStacksCommand());
         put(new MarieCommand());
+        put(new RoleMenuCommand());
+        put(new ChatIsThisRealCommand());
+        put(new CoinFlipCommand());
 
         put(new GiveEditorCommand());
         put(new SaveMeCommand());

@@ -40,18 +40,18 @@ public class PlanCommand extends AbstractTheBoysCommand {
     public void execute(SlashCommandInteractionEvent event) {
         event.deferReply().queue();
         EmbedBuilder builder = Util.blueBuilder();
-        builder.setTitle(getStrOp("event"));
+        builder.setTitle(getStringOption("event"));
         builder.addField("Organizer", Objects.requireNonNull(event.getMember()).getEffectiveName(), false);
-        builder.addField("Event", getStrOp("event"), false);
+        builder.addField("Event", getStringOption("event"), false);
 
         if (optionExists("where"))
-            builder.addField("Where", getStrOp("where"), false);
+            builder.addField("Where", getStringOption("where"), false);
         if (optionExists("when"))
-            builder.addField("When", getStrOp("when"), false);
+            builder.addField("When", getStringOption("when"), false);
         if (optionExists("bring"))
-            builder.addField("Bring", getStrOp("bring"), false);
+            builder.addField("Bring", getStringOption("bring"), false);
         if (optionExists("extrainformation"))
-            builder.addField("Extra Information", getStrOp("extrainformation"), true);
+            builder.addField("Extra Information", getStringOption("extrainformation"), true);
         MessageBuilder m = new MessageBuilder();
         if (boolOrElse("ping", false))
             m.append("||@everyone||");
@@ -68,7 +68,7 @@ public class PlanCommand extends AbstractTheBoysCommand {
             message.addReaction(Emojis.UP_ARROW).queue();
             message.addReaction(Emojis.DOWN_ARROW).queue();
             if (boolOrElse("thread", true)) {
-                message.createThreadChannel(getStrOp("event")).queue();
+                message.createThreadChannel(getStringOption("event")).queue();
             }
         });
         event.getHook().deleteOriginal().queue();

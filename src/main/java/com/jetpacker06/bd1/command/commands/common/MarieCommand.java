@@ -1,24 +1,22 @@
-package com.jetpacker06.bd1.command.commands.basic;
+package com.jetpacker06.bd1.command.commands.common;
 
 import com.jetpacker06.bd1.command.commands.Command;
 import com.jetpacker06.bd1.util.Util;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
-public class PreciseCommand extends Command {
+public class MarieCommand extends Command {
+
     @Override
     public String getName() {
-        return "precise";
+        return "mariequote";
     }
     @Override
     public String getDescription() {
-        return "Very precise calculations.";
+        return "lasagna";
     }
 
     @Override
     public void execute(SlashCommandInteractionEvent event) {
-        event.replyEmbeds(Util.createImageEmbed(gif_link)).queue();
+        event.replyEmbeds(Util.createImageEmbed("https://github.com/jetpacker06/Create-Broken-Bad/blob/1.18/images/marie.png?raw=true")).queue();
     }
-
-
-    public static String gif_link = "https://media.tenor.com/t5xwKNKc2cIAAAAd/very-very-precise-steve-kornacki.gif";
 }

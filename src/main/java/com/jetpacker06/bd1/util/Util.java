@@ -20,7 +20,6 @@ public class Util {
     public static <T> T randomFromArray(T[] array) {
         return array[new Random().nextInt(array.length)];
     }
-
     public static <T> boolean isThingInList(T thing, T[] list) {
         boolean toReturn = false;
         for (T s : list) {
@@ -40,11 +39,16 @@ public class Util {
     public static EmbedBuilder coloredEmbedBuilder(int color) {
         return new EmbedBuilder().setColor(color);
     }
+    public static MessageEmbed createEmbed(String title) {
+        return new EmbedBuilder().setTitle(title)
+                .setColor(Colors.BLUE)
+                .build();
+    }
     public static MessageEmbed createImageEmbed(String url) {
         return blueBuilder().setImage(url).build();
     }
     public static void logJSONObject(JsonObject obj) {
-        print(new GsonBuilder().setPrettyPrinting().create().toJson(obj));
+        print(JSONObjectToString(obj));
     }
     public static String getUsername(User user) {
         return user.getName() + "#" + user.getDiscriminator();
@@ -67,5 +71,8 @@ public class Util {
     }
     public static String JSONObjectToString(JsonObject json) {
         return new GsonBuilder().setPrettyPrinting().create().toJson(json);
+    }
+    public static boolean coinFlip() {
+        return new Random().nextInt(0, 2) == 0;
     }
 }

@@ -1,4 +1,4 @@
-package com.jetpacker06.bd1.command.commands.basic;
+package com.jetpacker06.bd1.command.commands.common;
 
 import com.jetpacker06.bd1.command.commands.Command;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -27,7 +27,7 @@ public class FromStacksCommand extends Command {
 
     @Override
     public void execute(SlashCommandInteractionEvent event) {
-        int input = getIntOp("number");
+        int input = getIntOption("number");
         int stackSize = intOrElse("stacksize", 64);
         if (input <= 0) {
             event.reply("Input must be positive").setEphemeral(true).queue();

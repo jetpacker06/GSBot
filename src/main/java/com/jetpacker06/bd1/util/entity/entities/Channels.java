@@ -8,6 +8,7 @@ public class Channels {
     public static VoiceChannel noLawrence;
     public static VoiceChannel testNoCody;
 
+    public static TextChannel showcase;
     public static TextChannel botCmds;
 
     public static TextChannel jgeneral;

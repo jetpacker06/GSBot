@@ -34,19 +34,19 @@ public class RoleRequestCommand extends AbstractJetpackHubCommand {
     public void execute(SlashCommandInteractionEvent event) {
         EmbedBuilder bobTheBuilder = Util.blueBuilder();
         bobTheBuilder.setTitle("Request sent!");
-        bobTheBuilder.appendDescription("Sent a request for role \"" + getStrOp("role") + "\". jetpacker will get back to you soon!");
+        bobTheBuilder.appendDescription("Sent a request for role \"" + getStringOption("role") + "\". jetpacker will get back to you soon!");
         if (optionExists("link")) {
             bobTheBuilder.appendDescription("\nLink attached:\n");
-            bobTheBuilder.appendDescription(getStrOp("link"));
+            bobTheBuilder.appendDescription(getStringOption("link"));
         }
         event.replyEmbeds(bobTheBuilder.build()).setEphemeral(true).queue();
 
         Objects.requireNonNull(BD1.jda.getUserById(UserIDs.cody)).openPrivateChannel().queue((PrivateChannel privateChannel) -> {
             EmbedBuilder dmEmbed = Util.blueBuilder();
-            dmEmbed.setTitle(Objects.requireNonNull(event.getMember()).getEffectiveName() + " requested the role \"" + getStrOp("role") + "\"");
+            dmEmbed.setTitle(Objects.requireNonNull(event.getMember()).getEffectiveName() + " requested the role \"" + getStringOption("role") + "\"");
             if (optionExists("link")) {
                 dmEmbed.appendDescription("\nLink attached:\n");
-                dmEmbed.appendDescription(getStrOp("link"));
+                dmEmbed.appendDescription(getStringOption("link"));
             }
             dmEmbed.setImage(event.getUser().getAvatarUrl());
             privateChannel.sendMessageEmbeds(dmEmbed.build()).queue();

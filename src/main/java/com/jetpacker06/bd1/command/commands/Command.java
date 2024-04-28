@@ -15,7 +15,6 @@ import java.util.Objects;
 public abstract class Command {
     public abstract String getName();
     public abstract String getDescription();
-    public abstract void execute(SlashCommandInteractionEvent event);
 
     public ArrayList<OptionData> getOptions() {
         return new ArrayList<>();
@@ -30,38 +29,42 @@ public abstract class Command {
         CommandRegistry.commandDataArrayList.add(command);
     }
 
-    public void executeForIncorrectContext(SlashCommandInteractionEvent event) {
-        event.reply("This command does not work in this server").setEphemeral(true).queue();
-    }
+    // called if the below method returns true
+    public abstract void execute(SlashCommandInteractionEvent event);
+    // can be overridden to ensure that a command is allowed to be used in the context
     public boolean checkContext(SlashCommandInteractionEvent event) {
         return true;
     }
+    // called if the above method returns false
+    public void executeForIncorrectContext(SlashCommandInteractionEvent event) {
+        event.reply("This command does not work in this server").setEphemeral(true).queue();
+    }
 
-    public String getStrOp(String optionName) {
+    public String getStringOption(String optionName) {
         return Objects.requireNonNull(BD1.recentCommandEvent.getOption(optionName)).getAsString();
     }
-    public boolean getBoolOp(String optionName) {
+    public boolean getBoolOption(String optionName) {
         return Objects.requireNonNull(BD1.recentCommandEvent.getOption(optionName)).getAsBoolean();
     }
-    public int getIntOp(String optionName) {
+    public int getIntOption(String optionName) {
         return Objects.requireNonNull(BD1.recentCommandEvent.getOption(optionName)).getAsInt();
     }
 
     public int intOrElse(String name, int backup) {
         if (optionExists(name)) {
-            return getIntOp(name);
+            return getIntOption(name);
         }
         return backup;
     }
     public String stringOrElse(String name, String backup) {
         if (optionExists(name)) {
-            return getStrOp(name);
+            return getStringOption(name);
         }
         return backup;
     }
     public boolean boolOrElse(String name, boolean backup) {
         if (optionExists(name)) {
-            return getBoolOp(name);
+            return getBoolOption(name);
         }
         return backup;
     }

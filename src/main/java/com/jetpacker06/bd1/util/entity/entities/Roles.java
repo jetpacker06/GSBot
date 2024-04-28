@@ -6,4 +6,5 @@ public class Roles {
     public static Role editor;
     public static Role noEditor;
     public static Role online;
+    public static Role rkelly;
 }
