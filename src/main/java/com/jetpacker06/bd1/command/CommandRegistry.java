@@ -8,6 +8,7 @@ import com.jetpacker06.bd1.command.commands.jetpackhub.RoleRequestCommand;
 import com.jetpacker06.bd1.command.commands.theboys.GiveEditorCommand;
 import com.jetpacker06.bd1.command.commands.theboys.PlanCommand;
 import com.jetpacker06.bd1.command.commands.theboys.SaveMeCommand;
+import com.jetpacker06.bd1.event.SlashCommandEvents;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
 
@@ -37,6 +38,6 @@ public class CommandRegistry {
         commandListUpdateAction.queue();
     }
     private static void put(Command command) {
-        EventHandler.commands.put(command.getName(), command);
+        SlashCommandEvents.commands.put(command.getName(), command);
     }
 }
