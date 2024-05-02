@@ -1,10 +1,8 @@
 package com.jetpacker06.bd1.event;
 
 import com.jetpacker06.bd1.BD1;
-import com.jetpacker06.bd1.command.commands.Command;
 import com.jetpacker06.bd1.command.commands.common.RoleMenuCommand;
 import com.jetpacker06.bd1.db.DBAccessor;
-import com.jetpacker06.bd1.util.Util;
 import com.jetpacker06.bd1.util.entity.entities.*;
 import net.dv8tion.jda.api.entities.AudioChannel;
 import net.dv8tion.jda.api.entities.Guild;
@@ -19,9 +17,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.HashMap;
-
-public class EventHandler extends ListenerAdapter {
+public class MiscEvents extends ListenerAdapter {
     @Override
     public void onGenericEvent(@NotNull GenericEvent event) {
         BD1.recentEvent = event;
@@ -34,29 +30,26 @@ public class EventHandler extends ListenerAdapter {
 
     @Override
     public void onGuildMemberJoin(@NotNull GuildMemberJoinEvent event) {
-        if (event.getGuild().getIdLong() != Guilds.theBoys.getIdLong()) return;
-        if (!event.getUser().isBot()) {
+        long guild = event.getGuild().getIdLong();
+        if (guild == Guilds.theBoys.getIdLong() && !event.getUser().isBot()) {
             Guilds.theBoys.addRoleToMember(event.getUser(), Roles.rkelly).queue();
             Guilds.theBoys.addRoleToMember(event.getUser(), Roles.online).queue();
-        }
-    }
-
-    @Override
-    public void onGuildVoiceJoin(@NotNull GuildVoiceJoinEvent event) {
-        ensureAllowedInChannel(event.getMember(), event.getChannelJoined(), event.getGuild());
-    }
-
-    @Override
-    public void onGuildVoiceMove(@NotNull GuildVoiceMoveEvent event) {
-        ensureAllowedInChannel(event.getMember(), event.getChannelJoined(), event.getGuild());
-    }
-
-    private static void ensureAllowedInChannel(Member member, AudioChannel channel, Guild guild) {
-        if (member.getIdLong() == UserIDs.cody & channel == Channels.testNoCody) {
-            guild.kickVoiceMember(member).queue();
-        }
-        if (member.getIdLong() == UserIDs.lawrence & channel == Channels.noLawrence) {
-            guild.kickVoiceMember(member).queue();
+        } else if (guild == Guilds.jetpackHub.getIdLong()) {
+            if (Guilds.jetpackHub.getMemberCount() == 1_000) {
+                Channels.announcements.sendMessage("Congratulations " + event.getMember().getAsMention() + "on being the 1,000th member!").queue();
+            }
+        } else if (guild == Guilds.jetpackHub.getIdLong()) {
+            if (Guilds.jetpackHub.getMemberCount() == 2_000) {
+                Channels.announcements.sendMessage("Congratulations " + event.getMember().getAsMention() + "on being the 2,000th member!").queue();
+            }
+        } else if (guild == Guilds.jetpackHub.getIdLong()) {
+            if (Guilds.jetpackHub.getMemberCount() == 5_000) {
+                Channels.announcements.sendMessage("Congratulations " + event.getMember().getAsMention() + "on being the 5,000th member!").queue();
+            }
+        } else if (guild == Guilds.jetpackHub.getIdLong()) {
+            if (Guilds.jetpackHub.getMemberCount() == 10_000) {
+                Channels.announcements.sendMessage("Congratulations " + event.getMember().getAsMention() + "on being the 10,000th member!").queue();
+            }
         }
     }
 

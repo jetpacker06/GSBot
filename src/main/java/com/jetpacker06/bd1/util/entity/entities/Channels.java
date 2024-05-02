@@ -9,7 +9,8 @@ public class Channels {
     public static VoiceChannel testNoCody;
 
     public static TextChannel showcase;
-    public static TextChannel botCmds;
+    public static TextChannel announcements;
+    public static TextChannel botcmds_jetpackhub;
 
     public static TextChannel jgeneral;
 }
