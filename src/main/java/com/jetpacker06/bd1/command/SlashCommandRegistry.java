@@ -4,9 +4,6 @@ import com.jetpacker06.bd1.BD1;
 import com.jetpacker06.bd1.command.commands.Command;
 import com.jetpacker06.bd1.command.commands.common.*;
 import com.jetpacker06.bd1.command.commands.jetpackhub.RoleRequestCommand;
-import com.jetpacker06.bd1.command.commands.theboys.GiveEditorCommand;
-import com.jetpacker06.bd1.command.commands.theboys.PlanCommand;
-import com.jetpacker06.bd1.command.commands.theboys.SaveMeCommand;
 import com.jetpacker06.bd1.event.SlashCommandEvents;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
@@ -25,10 +22,6 @@ public class SlashCommandRegistry {
         put(new RoleMenuCommand());
         put(new ChatIsThisRealCommand());
         put(new CoinFlipCommand());
-
-        put(new GiveEditorCommand());
-        put(new SaveMeCommand());
-        put(new PlanCommand());
 
         put(new RoleRequestCommand());
 

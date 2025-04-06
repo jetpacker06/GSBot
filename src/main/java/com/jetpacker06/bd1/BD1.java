@@ -4,7 +4,6 @@ import com.jetpacker06.bd1.command.SlashCommandRegistry;
 import com.jetpacker06.bd1.db.DBClient;
 import com.jetpacker06.bd1.event.MiscEvents;
 import com.jetpacker06.bd1.event.SlashCommandEvents;
-import com.jetpacker06.bd1.event.VCEvents;
 import com.jetpacker06.bd1.terminal.Terminal;
 import com.jetpacker06.bd1.util.entity.entities.Channels;
 import com.jetpacker06.bd1.util.entity.entities.Guilds;
@@ -39,7 +38,7 @@ public class BD1 {
         .enableIntents(GatewayIntent.MESSAGE_CONTENT)
         .enableIntents(GatewayIntent.GUILD_MEMBERS)
         .setStatus(OnlineStatus.ONLINE)
-        .addEventListeners(new MiscEvents(), new SlashCommandEvents(), new VCEvents())
+        .addEventListeners(new MiscEvents(), new SlashCommandEvents())
         .build()
         .awaitReady();
 
@@ -52,12 +51,8 @@ public class BD1 {
     }
 
     public static void initSnowflakes() {
-        Guilds.theBoys = jda.getGuildById(1080478548948684900L);
         Guilds.jetpackHub = jda.getGuildById(871409050808643594L);
         Guilds.testServer = jda.getGuildById(945662624224382998L);
-
-        Channels.plans = jda.getTextChannelById(1132046698265464853L);
-        Channels.noLawrence = jda.getVoiceChannelById(1080625271100669962L);
 
         Channels.testNoCody = jda.getVoiceChannelById(1073007761060806667L);
         Channels.jgeneral = jda.getTextChannelById(1076725461054402570L);

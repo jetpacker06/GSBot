@@ -8,7 +8,7 @@ import org.bson.Document;
 
 public class DBAccessor {
     public static int incrementAndGetCYBIG() {
-        String counterName = "CYBIGCounter";
+        final String counterName = "CYBIGCounter";
         Document doc = DBClient.mongoClient.getDatabase("Misc").getCollection("SaveData").findOneAndUpdate(
                 Filters.exists(counterName),
                 Updates.inc(counterName, 1),

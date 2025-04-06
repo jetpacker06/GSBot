@@ -17,6 +17,10 @@ public class Terminal {
         while (true) {
             System.out.println("Enter command: ");
             String[] splitInput = sc.nextLine().split(" ");
+            if (splitInput.length == 0) {
+                System.out.println("Invalid command");
+                continue;
+            }
             String command = splitInput[0].toLowerCase();
             ArrayList<String> input = new ArrayList<>(List.of(splitInput));
             if (functions.containsKey(command)) {
@@ -27,7 +31,7 @@ public class Terminal {
                     e.printStackTrace();
                 }
             } else {
-                System.out.println("Unknown command");
+                System.out.println("Invalid command");
             }
             try {
                 Thread.sleep(1000);

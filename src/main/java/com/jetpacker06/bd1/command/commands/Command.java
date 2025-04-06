@@ -68,9 +68,6 @@ public abstract class Command {
         }
         return backup;
     }
-    public boolean isTheBoysServer(SlashCommandInteractionEvent event) {
-        return Objects.requireNonNull(event.getGuild()).getIdLong() == Guilds.theBoys.getIdLong();
-    }
     public boolean isTestServer() {
         return Objects.requireNonNull(BD1.recentCommandEvent.getGuild()).getIdLong() == Guilds.testServer.getIdLong();
     }

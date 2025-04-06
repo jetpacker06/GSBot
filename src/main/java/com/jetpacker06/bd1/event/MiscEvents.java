@@ -4,13 +4,8 @@ import com.jetpacker06.bd1.BD1;
 import com.jetpacker06.bd1.command.commands.common.RoleMenuCommand;
 import com.jetpacker06.bd1.db.DBAccessor;
 import com.jetpacker06.bd1.util.entity.entities.*;
-import net.dv8tion.jda.api.entities.AudioChannel;
-import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.GenericEvent;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
-import net.dv8tion.jda.api.events.guild.voice.GuildVoiceJoinEvent;
-import net.dv8tion.jda.api.events.guild.voice.GuildVoiceMoveEvent;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.component.SelectMenuInteractionEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -31,10 +26,7 @@ public class MiscEvents extends ListenerAdapter {
     @Override
     public void onGuildMemberJoin(@NotNull GuildMemberJoinEvent event) {
         long guild = event.getGuild().getIdLong();
-        if (guild == Guilds.theBoys.getIdLong() && !event.getUser().isBot()) {
-            Guilds.theBoys.addRoleToMember(event.getUser(), Roles.rkelly).queue();
-            Guilds.theBoys.addRoleToMember(event.getUser(), Roles.online).queue();
-        } else if (guild == Guilds.jetpackHub.getIdLong()) {
+         if (guild == Guilds.jetpackHub.getIdLong()) {
             if (Guilds.jetpackHub.getMemberCount() == 1_000) {
                 Channels.announcements.sendMessage("Congratulations " + event.getMember().getAsMention() + "on being the 1,000th member!").queue();
             }
@@ -61,11 +53,12 @@ public class MiscEvents extends ListenerAdapter {
     @Override
     public void onMessageReceived(@NotNull MessageReceivedEvent event) {
         // if in Showcase channel and has an attachment, send a thumbs up
-        if (event.isFromGuild() && event.getChannel().getIdLong() == Channels.showcase.getIdLong() && event.getMessage().getAttachments().size() != 0) {
+        if (event.isFromGuild() && event.getChannel().getIdLong() == Channels.showcase.getIdLong() && !event.getMessage().getAttachments().isEmpty()) {
             event.getMessage().addReaction(Emojis.THUMBS_UP).queue();
         } else if (event.isFromGuild() && event.getGuild().getIdLong() == Guilds.jetpackHub.getIdLong()
                 && event.getMessage().getContentRaw().toLowerCase().startsWith("can you believe it guys")
         ) {
+            System.out.println("can you believe it guys");
             int count = DBAccessor.incrementAndGetCYBIG();
             event.getMessage().reply(String.valueOf(count)).queue();
         }
