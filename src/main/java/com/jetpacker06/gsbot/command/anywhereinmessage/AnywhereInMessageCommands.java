@@ -13,6 +13,7 @@ public class AnywhereInMessageCommands {
         tasks.put("clanker", event -> event.getMessage().reply("https://c.tenor.com/8-NM974OdjMAAAAd/tenor.gif").queue());
         tasks.put("the thing", event -> event.getMessage().reply("https://c.tenor.com/ls5WZFRO1xUAAAAd/tenor.gif").queue());
         tasks.put("let me break it down for you", event -> event.getMessage().reply("https://c.tenor.com/9fjEY93SqSMAAAAC/tenor.gif").queue());
+        tasks.put("doorbob", event -> event.getMessage().reply("https://tenor.com/view/mnewsradio-newsradio-news-radio-wnyx-gif-24310376").queue());
         tasks.put("fantastic", (event) -> {
 
             event.getMessage().reply("https://c.tenor.com/56CE99HqWyQAAAAd/tenor.gif").queue();
