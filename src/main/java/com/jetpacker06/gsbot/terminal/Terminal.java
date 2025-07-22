@@ -3,6 +3,7 @@ package com.jetpacker06.gsbot.terminal;
 import com.jetpacker06.gsbot.GSBot;
 import com.jetpacker06.gsbot.util.Util;
 import com.jetpacker06.gsbot.util.entity.entities.Channels;
+import com.jetpacker06.gsbot.util.entity.entities.UserIDs;
 import com.jetpacker06.gsbot.verseofday.VerseOfTheDayReader;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
@@ -126,6 +127,7 @@ public class Terminal {
                 }
             }
             System.out.println("did not find today's date in the file");
+            Channels.main_chat.sendMessage("i cannot seem to find today's Verse of the Day... <@" + UserIDs.CODY + ">").queue();
 
         });
         functions.put("read", list -> {

@@ -6,15 +6,20 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class AnywhereInMessageCommands {
-    public static HashMap<String, AnywhereInMessageCommandTask> tasks = new HashMap<>();
+    public static HashMap<String, AnywhereInMessageCommandTask> anywhereInMessageCommands = new HashMap<>();
+
+    public static void put(String command, AnywhereInMessageCommandTask task) {
+        anywhereInMessageCommands.put(command, task);
+    }
 
     public static void init() {
-        tasks.put("marcus", event -> event.getMessage().reply("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfoIliIJgOPKgk7OMW0g9UReRSvTL-xuXfTA&s").queue());
-        tasks.put("clanker", event -> event.getMessage().reply("https://c.tenor.com/8-NM974OdjMAAAAd/tenor.gif").queue());
-        tasks.put("the thing", event -> event.getMessage().reply("https://c.tenor.com/ls5WZFRO1xUAAAAd/tenor.gif").queue());
-        tasks.put("let me break it down for you", event -> event.getMessage().reply("https://c.tenor.com/9fjEY93SqSMAAAAC/tenor.gif").queue());
-        tasks.put("doorbob", event -> event.getMessage().reply("https://tenor.com/view/mnewsradio-newsradio-news-radio-wnyx-gif-24310376").queue());
-        tasks.put("fantastic", (event) -> {
+        put("marcus", event -> event.getMessage().reply("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfoIliIJgOPKgk7OMW0g9UReRSvTL-xuXfTA&s").queue());
+        put("clanker", event -> event.getMessage().reply("https://c.tenor.com/8-NM974OdjMAAAAd/tenor.gif").queue());
+        put("the thing", event -> event.getMessage().reply("https://c.tenor.com/ls5WZFRO1xUAAAAd/tenor.gif").queue());
+        put("let me break it down for you", event -> event.getMessage().reply("https://c.tenor.com/9fjEY93SqSMAAAAC/tenor.gif").queue());
+        put("doorbob", event -> event.getMessage().reply("https://tenor.com/view/mnewsradio-newsradio-news-radio-wnyx-gif-24310376").queue());
+        put("layla", event -> event.getMessage().reply("https://tenor.com/view/eric-clapton-derek-and-the-dominoes-iggydr-rock-80s-gif-18838124").queue());
+        put("fantastic", (event) -> {
 
             event.getMessage().reply("https://c.tenor.com/56CE99HqWyQAAAAd/tenor.gif").queue();
 

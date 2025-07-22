@@ -3,6 +3,7 @@ package com.jetpacker06.gsbot.event;
 import com.jetpacker06.gsbot.GSBot;
 import com.jetpacker06.gsbot.command.anywhereinmessage.AnywhereInMessageCommands;
 import com.jetpacker06.gsbot.terminal.DMTerminal;
+import com.jetpacker06.gsbot.util.Util;
 import net.dv8tion.jda.api.entities.ChannelType;
 import net.dv8tion.jda.api.events.GenericEvent;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
@@ -35,11 +36,10 @@ public class MiscEvents extends ListenerAdapter {
             return;
         }
 
-
-        for (String key : AnywhereInMessageCommands.tasks.keySet()) {
-            if (event.getMessage().getContentRaw().toLowerCase(Locale.ROOT).contains(key.toLowerCase(Locale.ROOT))
-            && !event.getAuthor().equals(event.getJDA().getSelfUser())) {
-                AnywhereInMessageCommands.tasks.get(key).run(event);
+        for (String key : AnywhereInMessageCommands.anywhereInMessageCommands.keySet()) {
+            if (event.getMessage().getContentDisplay().toLowerCase(Locale.ROOT).contains(key.toLowerCase(Locale.ROOT))
+            && !Util.isSelf(event.getAuthor())) {
+                AnywhereInMessageCommands.anywhereInMessageCommands.get(key).run(event);
             }
         }
     }

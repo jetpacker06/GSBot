@@ -51,6 +51,7 @@ public class GSBot {
         SlashCommandRegistry.init();
         AnywhereInMessageCommands.init();
         Terminal.startTerminal();
+
     }
 
     public static void initSnowflakes() {
@@ -58,6 +59,7 @@ public class GSBot {
         Guilds.gsServer = jda.getGuildById(1338605578033041470L);
 
         Channels.testServerGeneral = jda.getTextChannelById(1076725461054402570L);
+        Channels.main_chat = jda.getTextChannelById(1338605578649338020L);
         Channels.verseOfTheDay = jda.getTextChannelById(1371505789688352778L);
 
         Roles.mod = jda.getRoleById(1339623173422972989L);

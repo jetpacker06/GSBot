@@ -2,6 +2,7 @@ package com.jetpacker06.gsbot.util;
 
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+import com.jetpacker06.gsbot.util.entity.entities.UserIDs;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.TextChannel;
@@ -83,5 +84,8 @@ public class Util {
     }
     public static boolean coinFlip() {
         return new Random().nextBoolean();
+    }
+    public static boolean isSelf(User user) {
+        return user.getIdLong() == UserIDs.GSBOT;
     }
 }
