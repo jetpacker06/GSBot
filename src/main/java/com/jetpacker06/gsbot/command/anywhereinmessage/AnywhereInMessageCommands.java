@@ -1,5 +1,7 @@
 package com.jetpacker06.gsbot.command.anywhereinmessage;
 
+import com.jetpacker06.gsbot.util.entity.entities.UserIDs;
+
 import java.util.HashMap;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -21,6 +23,9 @@ public class AnywhereInMessageCommands {
         put("layla", event -> event.getMessage().reply("https://tenor.com/view/eric-clapton-derek-and-the-dominoes-iggydr-rock-80s-gif-18838124").queue());
         put("fantastic", (event) -> {
 
+            if (event.getAuthor().getIdLong() == UserIDs.BRYSON) {
+                return;
+            }
             event.getMessage().reply("https://c.tenor.com/56CE99HqWyQAAAAd/tenor.gif").queue();
 
             ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
