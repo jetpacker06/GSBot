@@ -19,6 +19,7 @@ public class SlashCommandRegistry {
         put(new MarcusGifCommand());
         put(new ChickenJockeyCommand());
         put(new BreakdanceCommand());
+        put(new FactCheckCommand());
 
         CommandListUpdateAction commandListUpdateAction = GSBot.jda.updateCommands();
         commandListUpdateAction.addCommands(commandDataArrayList);
