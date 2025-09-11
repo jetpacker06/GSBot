@@ -1,6 +1,7 @@
 package com.jetpacker06.gsbot.event;
 
 import com.jetpacker06.gsbot.GSBot;
+import com.jetpacker06.gsbot.command.anywhereinmessage.AIMCDisabler;
 import com.jetpacker06.gsbot.command.anywhereinmessage.AnywhereInMessageCommands;
 import com.jetpacker06.gsbot.terminal.DMTerminal;
 import com.jetpacker06.gsbot.util.Util;
@@ -39,7 +40,9 @@ public class MiscEvents extends ListenerAdapter {
         for (String key : AnywhereInMessageCommands.anywhereInMessageCommands.keySet()) {
             if (event.getMessage().getContentDisplay().toLowerCase(Locale.ROOT).contains(key.toLowerCase(Locale.ROOT))
             && !Util.isSelf(event.getAuthor())) {
-                AnywhereInMessageCommands.anywhereInMessageCommands.get(key).run(event);
+                if (AIMCDisabler.commandEnabled(key)) {
+                    AnywhereInMessageCommands.anywhereInMessageCommands.get(key).run(event);
+                }
             }
         }
     }

@@ -48,6 +48,9 @@ public class GSBot {
         VerseOfTheDayReader.init();
         ActivitySchedule.init();
 
+        // jda.getTextChannelById(1340778377249951816l).retrieveMessageById(1410649080555638926l).queue(message -> message.delete().queue());
+        // use this to delete a message
+
         SlashCommandRegistry.init();
         AnywhereInMessageCommands.init();
         Terminal.startTerminal();
