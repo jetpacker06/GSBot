@@ -106,14 +106,15 @@ public class Terminal {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
             String todayStr = sdf.format(new Date());  // e.g. "2025-07-05"
-            Date today = null;
+            Date today;
             try {
                 today = sdf.parse(todayStr);
             } catch (ParseException e) {
                 throw new RuntimeException(e);
             }
-
+            //System.out.println("Today: " + today);
             for (Date date : VerseOfTheDayReader.versesMap.keySet()) {
+                //System.out.println("Date: " + date);
                 if (date.getTime() == today.getTime()) {
                     EmbedBuilder bob = Util.blueBuilder();
                     bob.setTitle("YouVersion Verse of the Day: " + VerseOfTheDayReader.wordFormat.format(date));
@@ -127,7 +128,7 @@ public class Terminal {
                 }
             }
             System.out.println("did not find today's date in the file");
-            Channels.main_chat.sendMessage("i cannot seem to find today's Verse of the Day... <@" + UserIDs.CODY + ">").queue();
+            Channels.channelToSendVOTDWarning.sendMessage("i cannot seem to find today's Verse of the Day... <@" + UserIDs.CODY + ">").queue();
 
         });
         functions.put("read", list -> {

@@ -64,6 +64,11 @@ public class GSBot {
         Channels.testServerGeneral = jda.getTextChannelById(1076725461054402570L);
         Channels.main_chat = jda.getTextChannelById(1338605578649338020L);
         Channels.verseOfTheDay = jda.getTextChannelById(1371505789688352778L);
+        Channels.channelToSendVOTDWarning = Channels.main_chat;
+
+        // Un-comment these lines to test VOTD.
+        // Channels.verseOfTheDay = Channels.testServerGeneral;
+        // Channels.channelToSendVOTDWarning = Channels.testServerGeneral;
 
         Roles.mod = jda.getRoleById(1339623173422972989L);
     }

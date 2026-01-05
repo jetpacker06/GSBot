@@ -7,4 +7,5 @@ public class Channels {
     public static TextChannel testServerGeneral;
     public static TextChannel verseOfTheDay;
     public static TextChannel main_chat;
+    public static TextChannel channelToSendVOTDWarning;
 }

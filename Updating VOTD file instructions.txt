@@ -1,0 +1,4 @@
+1. Find the new file here: https://partner-support.youversion.com/l/en/article/2z6brl1tus-verse-of-the-day-calendar
+2. Replace the file in the project folder
+3. Open it in Intellij and replace the first row with an entry matching the current day's verse
+4. Git commit and upload new build to file server
